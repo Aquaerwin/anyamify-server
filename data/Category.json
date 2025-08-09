@@ -1,0 +1,33 @@
+[
+    {
+        "id" : 1, 
+        "image" : "https://i.postimg.cc/MKvwLYJg/SKINCARE.png",
+        "description" : "SKIN CARE"
+    },
+    {
+        "id" : 2, 
+        "image" : "https://i.postimg.cc/YSfBFnQL/SMARTPHONE.png",
+        "description" : "SMARTPHONE"
+    },
+    {
+        "id" : 3, 
+        "image" : "https://i.postimg.cc/gcMd4TQv/COMPUTER.png",
+        "description" : "COMPUTER"
+    },
+    {
+        "id" : 4, 
+        "image" : "https://i.postimg.cc/x1m2fTCR/FASHION.png",
+        "description" : "FASHION"
+    }, 
+    {
+        "id" : 5, 
+        "image" : "https://i.postimg.cc/hGqqfWQq/SHOES.png",
+        "description" : "SHOES"
+    }, 
+    {
+        "id" : 6, 
+        "image" : "https://i.postimg.cc/YqZ7Bmp0/ELECTRONICS.png",
+        "description" : "ELECTRONICS"
+    }
+]
+
