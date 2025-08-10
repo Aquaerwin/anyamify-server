@@ -44,21 +44,24 @@ app.get('/product', (req, res) => {
     res.json(responseData);
 });
 
-// --- Route untuk Rekomendasi (BARU DITAMBAHKAN) ---
+// --- Route untuk Rekomendasi (SUDAH DIPERBARUI DENGAN LOGIKA ACAK) ---
 app.get('/recommendation', (req, res) => {
-    // 1. Ambil data dari file Recommendation.json
-    const recommendationData = getData('./data/Recommendation.json');
-    
-    // 2. Dapatkan alamat dasar server
+    const allRecommendations = getData('./data/Recommendation.json');
     const baseUrl = `${req.protocol}://${req.get('host')}`;
 
-    // 3. Buat data baru dengan URL gambar yang sudah lengkap
-    const responseData = recommendationData.map(item => ({
+    // Acak urutan seluruh data
+    const shuffled = [...allRecommendations].sort(() => 0.5 - Math.random());
+
+    // Ambil HANYA 2 item pertama dari hasil acakan
+    const randomTwo = shuffled.slice(0, 2);
+    
+    // Buat URL lengkap untuk 2 item yang terpilih
+    const responseData = randomTwo.map(item => ({
         ...item,
         image: `${baseUrl}/images/${item.image}`
     }));
     
-    // 4. Kirim data sebagai respons
+    // Kirim 2 data acak tersebut
     res.json(responseData);
 });
 
