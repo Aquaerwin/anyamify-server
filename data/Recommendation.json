@@ -1,1 +1,15 @@
 
+[
+  {
+    "id": 1,
+    "brand": "Keranjang Bulat",
+    "price": 20000,
+    "image": "http://localhost:3200/fotoProduk/keranjangBulat.jpg"
+  },
+  {
+    "id": 2,
+    "brand": "Tampah Kotak",
+    "price": 20000,
+    "image": "http://localhost:3200/fotoProduk/tampahKotak.jpg"
+  }
+]
