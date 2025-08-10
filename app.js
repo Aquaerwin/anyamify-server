@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 
 // --- Routes API Anda ---
 
-// Route untuk Banner (SUDAH DIPERBAIKI)
+// Route untuk Banner
 app.get('/banner', (req, res) => {
     const bannerData = getData('./data/Banner.json');
     const baseUrl = `${req.protocol}://${req.get('host')}`;
@@ -33,7 +33,7 @@ app.get('/banner', (req, res) => {
     res.json(responseData);
 });
 
-// Route untuk semua Produk (SUDAH DIPERBAIKI)
+// Route untuk semua Produk
 app.get('/product', (req, res) => {
     const productData = getData('./data/Product.json');
     const baseUrl = `${req.protocol}://${req.get('host')}`;
@@ -44,7 +44,26 @@ app.get('/product', (req, res) => {
     res.json(responseData);
 });
 
-// Route untuk satu Produk berdasarkan ID (SUDAH DIPERBAIKI)
+// --- Route untuk Rekomendasi (BARU DITAMBAHKAN) ---
+app.get('/recommendation', (req, res) => {
+    // 1. Ambil data dari file Recommendation.json
+    const recommendationData = getData('./data/Recommendation.json');
+    
+    // 2. Dapatkan alamat dasar server
+    const baseUrl = `${req.protocol}://${req.get('host')}`;
+
+    // 3. Buat data baru dengan URL gambar yang sudah lengkap
+    const responseData = recommendationData.map(item => ({
+        ...item,
+        image: `${baseUrl}/images/${item.image}`
+    }));
+    
+    // 4. Kirim data sebagai respons
+    res.json(responseData);
+});
+
+
+// Route untuk satu Produk berdasarkan ID
 app.get('/product/:id', (req, res) => {
     const dataProduct = getData('./data/Product.json');
     const product = dataProduct.find((data) => data.id === parseInt(req.params.id));
